@@ -1,0 +1,58 @@
+{
+    "name": "c2spassman-backend",
+    "description": "Backend application powering C2S PassMan project",
+    "version": "0.0.1",
+    "author": {
+        "name": "Peter Aleksander Bizjak",
+        "email": "peteralex.developer@gmail.com"
+    },
+    "private": true,
+    "license": "UNLICENSED",
+    "scripts": {
+        "format": "prettier --write \"src/**/*.ts\"",
+        "lint": "eslint \"src/**/*.ts\" --fix",
+        "prettify": "npm run format && npm run lint",
+        "build": "rm -rf dist && npm run prettify && nest build",
+        "start": "npm run build && node dist/main"
+    },
+    "dependencies": {
+        "@nestjs/common": "^7.6.15",
+        "@nestjs/core": "^7.6.15",
+        "@nestjs/platform-fastify": "^7.6.15",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^6.6.6"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^7.6.0",
+        "@nestjs/schematics": "^7.3.1",
+        "@nestjs/testing": "^7.6.15",
+        "@types/jest": "^26.0.22",
+        "@types/node": "^14.14.37",
+        "@typescript-eslint/eslint-plugin": "^4.19.0",
+        "@typescript-eslint/parser": "^4.19.0",
+        "eslint": "^7.23.0",
+        "jest": "^26.6.3",
+        "prettier": "^2.2.1",
+        "ts-jest": "^26.5.4",
+        "ts-loader": "^8.0.18",
+        "ts-node": "^9.1.1",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^4.2.3"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "ts"
+        ],
+        "rootDir": ".",
+        "testRegex": "[.]spec.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "coverageDirectory": "./coverage",
+        "testEnvironment": "node",
+        "roots": [
+            "<rootDir>/src/"
+        ]
+    }
+}
