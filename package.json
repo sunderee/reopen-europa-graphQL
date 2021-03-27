@@ -13,12 +13,14 @@
         "lint": "eslint \"src/**/*.ts\" --fix",
         "prettify": "npm run format && npm run lint",
         "build": "rm -rf dist && npm run prettify && nest build",
-        "start": "npm run build && node dist/main"
+        "start": "npm run build && node dist/main",
+        "test": "jest"
     },
     "dependencies": {
         "@nestjs/common": "^7.6.15",
         "@nestjs/core": "^7.6.15",
         "@nestjs/platform-fastify": "^7.6.15",
+        "axios": "^0.21.1",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^6.6.6"
     },

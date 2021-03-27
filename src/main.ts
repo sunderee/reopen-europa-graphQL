@@ -4,17 +4,14 @@ import {
     FastifyAdapter,
     NestFastifyApplication
 } from '@nestjs/platform-fastify';
-import { get } from 'http';
+import { ApiProvider } from './api/api.provider';
 import { AppModule } from './app.module';
 
-function fetchPublicIPv4(): void {
-    get(
-        { host: 'ipv4bot.whatismyipaddress.com', port: '80', path: '/' },
-        (res) =>
-            res.on('data', (data) =>
-                Logger.log(`Server runs on public IPv4: ${data}`, 'Main')
-            )
-    );
+async function fetchPublicIPv4(): Promise<void> {
+    const ip = await ApiProvider.getInstance(
+        'ipv4bot.whatismyipaddress.com'
+    ).makeGetRequest<string>('text');
+    Logger.log('main', `Server is running from public IP ${ip}`);
 }
 
 async function bootstrap() {
