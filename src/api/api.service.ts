@@ -1,23 +1,19 @@
+import axios from 'axios';
 import { Injectable } from '@nestjs/common';
-import { ApiProvider } from './api.provider';
-import { CountryModel } from './models';
-
-export type Direction = 'from' | 'to';
 
 @Injectable()
 export class ApiService {
-    private readonly provider = ApiProvider.getInstance(
-        'https://reopen.europa.eu/api/covid/v1/eutcdata/'
-    )
-
-    public async fetchCountries(
-        direction: Direction
-    ): Promise<Array<CountryModel>> {
-        return (
-            (await this.provider.makeGetRequest<Array<CountryModel>>(
-                'json',
-                `countries/en/${direction === 'from' ? 'from' : 'to'}`
-            )) ?? []
+    public async makeGetRequest<T>(
+        baseURL: string,
+        endpoint?: string
+    ): Promise<T | undefined> {
+        const result = await axios.get<T>(
+            endpoint !== undefined ? baseURL + endpoint : baseURL,
+            {
+                method: 'GET',
+                responseType: 'json'
+            }
         );
+        return result.status === 200 ? result.data : undefined;
     }
 }
