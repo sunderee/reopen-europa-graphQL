@@ -1,6 +1,6 @@
 {
-    "name": "c2spassman-backend",
-    "description": "Backend application powering C2S PassMan project",
+    "name": "reopeneuropa-graphql",
+    "description": "Unofficial GraphQL API fetching data from reopen.europa.eu",
     "version": "0.0.1",
     "author": {
         "name": "Peter Aleksander Bizjak",
