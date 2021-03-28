@@ -5,7 +5,7 @@ import { CountryModel } from './models';
 
 @Controller('countries')
 export class CountriesController {
-    constructor(private readonly service: CountriesService) { }
+    constructor(private readonly service: CountriesService) {}
 
     @Get()
     @UsePipes(new CountriesPipe())
