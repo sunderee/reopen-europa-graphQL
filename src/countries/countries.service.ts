@@ -6,7 +6,7 @@ export type Direction = 'from' | 'to';
 
 @Injectable()
 export class CountriesService {
-    constructor(private readonly apiService: ApiService) {}
+    constructor(private readonly apiService: ApiService) { }
 
     public async fetchCountries(
         direction: Direction

@@ -7,6 +7,7 @@ import { CountriesModule } from './countries/countries.module';
 @Module({
     imports: [
         GraphQLModule.forRoot({
+            installSubscriptionHandlers: true,
             autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
             debug: true,
             playground: false
@@ -15,4 +16,4 @@ import { CountriesModule } from './countries/countries.module';
         CountriesModule
     ]
 })
-export class AppModule { }
+export class AppModule {}

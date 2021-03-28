@@ -1,16 +1,16 @@
-import { UsePipes } from '@nestjs/common';
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Args, Resolver, Query } from '@nestjs/graphql';
-import { CountriesPipe } from 'src/pipes';
 import { CountriesService, Direction } from './countries.service';
 import { CountryModel } from './models';
 
-@Resolver(of => CountryModel)
+@Resolver((_of: void) => CountryModel)
 export class CountriesResolver {
     constructor(private countriesService: CountriesService) { }
 
-    @Query(returns => [CountryModel])
-    @UsePipes(new CountriesPipe())
-    public async fetchCountries(@Args('direction') direction: Direction): Promise<Array<CountryModel>> {
+    @Query((_returns: void) => [CountryModel])
+    public async fetchCountries(
+        @Args('direction') direction: Direction
+    ): Promise<Array<CountryModel>> {
         return this.countriesService.fetchCountries(direction);
     }
 }
