@@ -59,15 +59,15 @@
             "<rootDir>/src/"
         ]
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
     "lint-staged": {
         "src/**/*.ts": [
             "npm run prettify",
             "git add"
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     }
 }
