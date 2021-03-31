@@ -5,7 +5,7 @@ import { CountryModel } from './models';
 
 @Resolver((_of: void) => CountryModel)
 export class CountriesResolver {
-    constructor(private countriesService: CountriesService) { }
+    constructor(private countriesService: CountriesService) {}
 
     @Query((_returns: void) => [CountryModel])
     public async fetchCountries(
