@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@nestjs/common';
-import { ApiService } from 'src/api/api.service';
+import { ApiService } from '../api/api.service';
 import { InfoModel } from './models';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class InfoService {
                 const toInfoRequest = request[1];
                 if (toInfoRequest !== undefined) {
                     const rule = toInfoRequest['indicators'][0]['rules'][0] as number;
-                    const toRequest = await this.apiService.makeGetRequest<Record<string, any>>(
+                    const toRequest = await this.apiService.makeGetRequest<Array<Record<string, any>>>(
                         'https://reopen.europa.eu/api/covid/v1/eutcdata/',
                         `data/en/${to}/${rule}`
                     );
@@ -32,9 +32,9 @@ export class InfoService {
                             fromInfo,
                             new InfoModel(
                                 to,
-                                toRequest['indicators'][0]['indicator_name'],
-                                toRequest['indicators'][0]['comment'],
-                                toRequest['indicators'][0]['value']
+                                toRequest[0] !== undefined ? toRequest[0]['indicators'][0]['indicator_name'] : null,
+                                toRequest[0] !== undefined ? toRequest[0]['indicators'][0]['comment'] : null,
+                                toRequest[0] !== undefined ? toRequest[0]['indicators'][0]['value'] : null
                             )
                         ]
                         : undefined;
