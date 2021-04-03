@@ -8,7 +8,7 @@ export class InfoResolver {
     constructor(private infoService: InfoService) {}
 
     @Query((_returns: void) => [InfoModel])
-    public async fetchInfo(@Args() data: InfoRequestModel): Promise<Array<InfoModel>> {
+    async fetchInfo(@Args() data: InfoRequestModel): Promise<Array<InfoModel>> {
         return this.infoService.fetchTravelInfoTransit(data.from, data.to, data.transit);
     }
 }

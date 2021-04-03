@@ -3,13 +3,13 @@ import { Field, ObjectType } from '@nestjs/graphql';
 @ObjectType()
 export class InfoModel {
     @Field({ nullable: false })
-    public country!: string;
+    country!: string;
 
     @Field({ nullable: false })
-    public title!: string;
+    title!: string;
 
     @Field({ nullable: false })
-    public comment!: string;
+    comment!: string;
 
     constructor(country: string, title: string, comment: string) {
         this.country = country;

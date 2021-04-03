@@ -7,7 +7,7 @@ import { InfoModel } from './models';
 export class InfoService {
     constructor(private readonly apiService: ApiService) {}
 
-    public async fetchTravelInfoTransit(from: string, to: string, transit?: string): Promise<Array<InfoModel>> {
+    async fetchTravelInfoTransit(from: string, to: string, transit?: string): Promise<Array<InfoModel>> {
         const request = await this.apiService.makeGetRequest<Array<Record<string, any>>>(
             'https://reopen.europa.eu/api/covid/v1/eutcdata/',
             transit !== undefined ? `fromto/en/${from}/${to}/${transit}` : `fromto/en/${from}/${to}`

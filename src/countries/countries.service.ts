@@ -8,7 +8,7 @@ export type Direction = 'from' | 'to';
 export class CountriesService {
     constructor(private readonly apiService: ApiService) {}
 
-    public async fetchCountries(direction: Direction): Promise<Array<CountryModel>> {
+    async fetchCountries(direction: Direction): Promise<Array<CountryModel>> {
         return (
             (await this.apiService.makeGetRequest<Array<CountryModel>>(
                 'https://reopen.europa.eu/api/covid/v1/eutcdata/',

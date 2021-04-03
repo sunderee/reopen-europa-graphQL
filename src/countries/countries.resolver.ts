@@ -8,7 +8,7 @@ export class CountriesResolver {
     constructor(private countriesService: CountriesService) {}
 
     @Query((_returns: void) => [CountryModel])
-    public async fetchCountries(@Args('direction') direction: Direction): Promise<Array<CountryModel>> {
+    async fetchCountries(@Args('direction') direction: Direction): Promise<Array<CountryModel>> {
         return this.countriesService.fetchCountries(direction);
     }
 }
