@@ -23,7 +23,7 @@ export class InfoService {
                 new InfoModel(
                     firstRequest['nutscode'],
                     firstRequest['indicators'][0]['indicator_name'],
-                    firstRequest['indicators'][0]['comment']
+                    firstRequest['indicators'][0]['comment'].replace(/<[^>]+>/g, '').replace(/[!?.]\w/, ' ')
                 )
             );
             for (const request of requests) {
@@ -37,7 +37,11 @@ export class InfoService {
                         new InfoModel(
                             ruleRequest[0] !== undefined ? ruleRequest[0]['nutscode'] : '',
                             ruleRequest[0] !== undefined ? ruleRequest[0]['indicators'][0]['indicator_name'] : '',
-                            ruleRequest[0] !== undefined ? ruleRequest[0]['indicators'][0]['comment'] : ''
+                            ruleRequest[0] !== undefined
+                                ? ruleRequest[0]['indicators'][0]['comment']
+                                    .replace(/<[^>]+>/g, '')
+                                    .replace(/[!?.]\w/, ' ')
+                                : ''
                         )
                     );
                 }
