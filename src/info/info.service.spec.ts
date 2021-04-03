@@ -18,7 +18,12 @@ describe('InfoService', () => {
     });
 
     it('should fetch data for SVN - ESP', async () => {
-        const data = await service.fetchTravelInfoWithoutTransit('SVN', 'ESP');
+        const data = await service.fetchTravelInfoTransit('SVN', 'ESP');
         expect(data?.length).toEqual(2);
+    });
+
+    it('should fetch data for SVN - DEU - ESP', async () => {
+        const data = await service.fetchTravelInfoTransit('SVN', 'ESP', 'DEU');
+        expect(data?.length).toEqual(3);
     });
 });
