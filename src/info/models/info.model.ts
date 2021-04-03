@@ -14,12 +14,7 @@ export class InfoModel {
     @Field({ nullable: false })
     public comment!: string;
 
-    constructor(
-        country: string,
-        title: string,
-        comment: string,
-        value?: string
-    ) {
+    constructor(country: string, title: string, comment: string, value?: string) {
         this.country = country;
         this.title = title;
         this.comment = comment;

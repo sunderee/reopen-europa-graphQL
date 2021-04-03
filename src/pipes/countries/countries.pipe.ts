@@ -1,22 +1,10 @@
-import {
-    ArgumentMetadata,
-    BadRequestException,
-    Injectable,
-    PipeTransform
-} from '@nestjs/common';
+import { ArgumentMetadata, BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
 import { Direction } from 'src/countries/countries.service';
 
 @Injectable()
 export class CountriesPipe implements PipeTransform {
-    transform(
-        value: Direction | undefined,
-        metadata: ArgumentMetadata
-    ): Direction {
-        if (
-            value !== undefined &&
-            metadata.type === 'query' &&
-            metadata.metatype === String
-        ) {
+    transform(value: Direction | undefined, metadata: ArgumentMetadata): Direction {
+        if (value !== undefined && metadata.type === 'query' && metadata.metatype === String) {
             const data = metadata.data ?? '';
             if (data === 'direction') {
                 if (value === 'from' || value === 'to') {

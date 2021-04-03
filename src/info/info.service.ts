@@ -7,13 +7,8 @@ import { InfoModel } from './models';
 export class InfoService {
     constructor(private readonly apiService: ApiService) { }
 
-    public async fetchTravelInfoWithoutTransit(
-        from: string,
-        to: string
-    ): Promise<Array<InfoModel> | undefined> {
-        const request = await this.apiService.makeGetRequest<
-            Array<Record<string, any>>
-        >(
+    public async fetchTravelInfoWithoutTransit(from: string, to: string): Promise<Array<InfoModel> | undefined> {
+        const request = await this.apiService.makeGetRequest<Array<Record<string, any>>>(
             'https://reopen.europa.eu/api/covid/v1/eutcdata/',
             `fromto/en/${from}/${to}`
         );
@@ -27,12 +22,8 @@ export class InfoService {
                 );
                 const toInfoRequest = request[1];
                 if (toInfoRequest !== undefined) {
-                    const rule = toInfoRequest['indicators'][0][
-                        'rules'
-                    ][0] as number;
-                    const toRequest = await this.apiService.makeGetRequest<
-                        Record<string, any>
-                    >(
+                    const rule = toInfoRequest['indicators'][0]['rules'][0] as number;
+                    const toRequest = await this.apiService.makeGetRequest<Record<string, any>>(
                         'https://reopen.europa.eu/api/covid/v1/eutcdata/',
                         `data/en/${to}/${rule}`
                     );
