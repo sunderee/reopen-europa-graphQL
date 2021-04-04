@@ -1,6 +1,6 @@
 # Reopen Europa GraphQL
 
-**Unofficial** GraphQL API which fetches data from the [official `reopen.europa.eu` website](https://reopen.europa.eu/en). This is a [Node.js](https://nodejs.org/en/) based backend built with [Nest.js framework](https://nestjs.com/), exposing both RESTful and GraphQL APIs.
+**Unofficial** GraphQL API which fetches data from the [official `reopen.europa.eu` website](https://reopen.europa.eu/en). This is a [Node.js](https://nodejs.org/en/) based backend built with [Nest.js framework](https://nestjs.com/), exposed as GraphQL API.
 
 ## Motivation
 
