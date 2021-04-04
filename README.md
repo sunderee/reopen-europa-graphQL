@@ -17,7 +17,8 @@ You can run the app bare-metal, or inside a Docker container.
 
 ```bash
 # For bare-metal run
-npm install && npm run start
+npm install
+npm run start
 
 # For containerized run
 docker build -t <tag> -f Dockerfile .
