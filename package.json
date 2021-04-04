@@ -7,7 +7,7 @@
         "email": "peteralex.developer@gmail.com"
     },
     "private": true,
-    "license": "UNLICENSED",
+    "license": "MIT",
     "scripts": {
         "format": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint \"src/**/*.ts\" --fix",
