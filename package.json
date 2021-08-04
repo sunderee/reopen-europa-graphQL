@@ -25,7 +25,7 @@
         "apollo-server-fastify": "^2.22.1",
         "axios": "^0.21.1",
         "graphql": "^15.5.0",
-        "graphql-tools": "^7.0.4",
+        "graphql-tools": "^8.1.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^6.6.6"
     },
